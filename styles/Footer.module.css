@@ -1,0 +1,228 @@
+/* styles/Footer.module.css */
+
+.footer {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  padding: 1.5rem 0;
+  border-top: 1px solid #dee2e6;
+  margin-top: auto;
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Main Content */
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.brand h3 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1.3rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.tagline {
+  margin: 0;
+  color: #6c757d;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  color: #495057;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.contactItem a {
+  color: #495057;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactItem a:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.icon {
+  font-size: 1rem;
+  margin-top: 0.1rem;
+  flex-shrink: 0;
+  color: #6c757d;
+}
+
+.quickActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.actionBtn {
+  background: #ffffff;
+  color: #495057;
+  padding: 0.7rem 1.2rem;
+  border-radius: 25px;
+  text-decoration: none;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.actionBtn:hover {
+  background: #007bff;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,123,255,0.3);
+  text-decoration: none;
+}
+
+/* Bottom Bar */
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #6c757d;
+  font-size: 0.8rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.copyright p {
+  margin: 0.2rem 0;
+  color: #6c757d;
+}
+
+.madeWith {
+  color: #e74c3c !important;
+  font-size: 0.9rem;
+}
+
+/* TechPotli Credit Section */
+.techpotli {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  width: 100%;
+  padding-top: 1rem;
+}
+
+.techpotli p {
+  font-size: 0.8rem;
+  color: #6c757d;
+  margin: 0;
+}
+
+.logoLink {
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.logoLink:hover {
+  opacity: 0.8;
+}
+
+.logo {
+  height: 25px;
+  width: auto;
+  filter: brightness(0.7);
+  transition: filter 0.2s ease;
+}
+
+.logoLink:hover .logo {
+  filter: brightness(0.5);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footerContent {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .footer {
+    padding: 1rem 0;
+  }
+  
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .contactItem {
+    justify-content: center;
+  }
+  
+  .quickActions {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .actionBtn {
+    flex: 1;
+    min-width: 140px;
+    max-width: 160px;
+  }
+  
+  .bottomBar {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+  .techpotli {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand h3 {
+    font-size: 1.1rem;
+  }
+  
+  .actionBtn {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+    min-width: 120px;
+  }
+  
+  .logo {
+    height: 20px;
+  }
+}

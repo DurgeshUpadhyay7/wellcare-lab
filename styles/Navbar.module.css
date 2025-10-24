@@ -1,0 +1,1348 @@
+/* Navbar.module.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.8rem 2rem;
+  position: relative;
+}
+
+/* Enhanced Logo Styles - FIXED */
+.logo {
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+}
+
+.logoContent {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logoContent {
+  transform: translateY(-1px);
+}
+
+.logoImageWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoImageContainer {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.logo:hover .logoImage {
+  transform: scale(1.05);
+  filter: brightness(1.1) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+/* Logo Fallback */
+.logoFallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3498db, #667eea);
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.fallbackIcon {
+  filter: brightness(0) invert(1);
+}
+
+.logoGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #3498db, #667eea);
+  border-radius: 12px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.logo:hover .logoGlow {
+  opacity: 0.1;
+  animation: logoGlow 2s ease-in-out infinite;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logoMain {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.logoSub {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #666;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.logoHoverEffect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logoHoverEffect {
+  width: 120px;
+  height: 120px;
+}
+
+/* Navigation Links */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+}
+
+.navLink {
+  position: relative;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.linkText {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.navLink:hover .linkText,
+.navLink.hovered .linkText {
+  color: #3498db;
+  transform: translateY(-1px);
+}
+
+.navLink.active .linkText {
+  color: #3498db;
+  font-weight: 600;
+}
+
+.linkUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #3498db, #667eea);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.navLink:hover .linkUnderline,
+.navLink.hovered .linkUnderline,
+.navLink.active .linkUnderline {
+  width: 100%;
+}
+
+.linkHoverEffect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.navLink:hover .linkHoverEffect,
+.navLink.hovered .linkHoverEffect {
+  width: 80px;
+  height: 80px;
+  opacity: 1;
+}
+
+/* CTA Button */
+.ctaButton {
+  position: relative;
+  background: linear-gradient(135deg, #3498db, #667eea);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+}
+
+.ctaIcon {
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .ctaIcon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.ctaHoverEffect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.ctaButton:hover .ctaHoverEffect {
+  left: 100%;
+}
+
+.ctaPulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  background: inherit;
+  opacity: 0;
+  animation: ctaPulse 2s ease-in-out infinite;
+}
+
+/* Navigation Progress Bar */
+.navProgress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: rgba(52, 152, 219, 0.1);
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, #3498db, #667eea);
+  transition: width 0.3s ease;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Mobile Menu Button */
+.mobileMenuButton {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1002;
+}
+
+.menuLine {
+  width: 25px;
+  height: 2px;
+  background: #333;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.mobileMenuButton:hover .menuLine {
+  background: #3498db;
+}
+
+.line1 {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.line2 {
+  opacity: 0;
+}
+
+.line3 {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Mobile Menu */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1001;
+  display: none;
+}
+
+.mobileMenu.open {
+  display: block;
+}
+
+.mobileMenuContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background: white;
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+  padding: 5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 1002;
+}
+
+.mobileMenu.open .mobileMenuContent {
+  transform: translateX(0);
+}
+
+.mobileNavLink {
+  position: relative;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: all 0.3s ease;
+}
+
+.mobileNavLink.active {
+  color: #3498db;
+}
+
+.mobileLinkText {
+  position: relative;
+  z-index: 2;
+}
+
+.mobileLinkIndicator {
+  position: absolute;
+  top: 50%;
+  left: -1rem;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 0;
+  background: #3498db;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.mobileNavLink.active .mobileLinkIndicator {
+  height: 20px;
+}
+
+.mobileCtaButton {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  border: none;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.mobileCtaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+}
+
+.mobileCtaIcon {
+  font-size: 1.2rem;
+}
+
+.mobileMenuBackdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+/* Animations */
+@keyframes logoGlow {
+  0%, 100% { opacity: 0.1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.15; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@keyframes ctaPulse {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.3; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .navLinks {
+    gap: 1.5rem;
+  }
+  
+  .ctaButton {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navLinks,
+  .ctaButton {
+    display: none;
+  }
+  
+  .mobileMenuButton {
+    display: flex;
+  }
+  
+  .navContainer {
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .logoMain {
+    font-size: 1.2rem;
+  }
+  
+  .logoSub {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobileMenuContent {
+    width: 280px;
+  }
+  
+  .navContainer {
+    padding: 0.8rem 1rem;
+  }
+  
+  .logoText {
+    display: none; /* Hide text on very small screens */
+  }
+}
+
+/* Logo Debug Styles - Remove these if logo works fine */
+.logoDebug {
+  border: 2px dashed red;
+}
+
+.logoImageDebug {
+  border: 1px solid blue;
+}
+/* Navbar.module.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+}
+
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.8rem 2rem;
+  position: relative;
+}
+
+/* Logo Styles - Same as before */
+.logo {
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+}
+
+.logoContent {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logoContent {
+  transform: translateY(-1px);
+}
+
+.logoImageWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoImageContainer {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.logo:hover .logoImage {
+  transform: scale(1.05);
+  filter: brightness(1.1) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.15));
+}
+
+.logoFallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #3498db, #667eea);
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.fallbackIcon {
+  filter: brightness(0) invert(1);
+}
+
+.logoGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #3498db, #667eea);
+  border-radius: 12px;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.logo:hover .logoGlow {
+  opacity: 0.1;
+  animation: logoGlow 2s ease-in-out infinite;
+}
+
+.logoText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.logoMain {
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2c3e50, #3498db);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: all 0.3s ease;
+}
+
+.logoSub {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: #666;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.logoHoverEffect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(52, 152, 219, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.logo:hover .logoHoverEffect {
+  width: 120px;
+  height: 120px;
+}
+
+/* Enhanced Navigation Links */
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.navLink {
+  position: relative;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  padding: 0.8rem 1.2rem;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: transparent;
+}
+
+.navLink:hover,
+.navLink.hovered {
+  background: rgba(52, 152, 219, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.2);
+}
+
+.navLink.active {
+  background: linear-gradient(135deg, #3498db, #667eea);
+  color: white;
+  box-shadow: 0 4px 20px rgba(52, 152, 219, 0.4);
+}
+
+.linkIcon {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.navLink:hover .linkIcon,
+.navLink.hovered .linkIcon {
+  transform: scale(1.2);
+}
+
+.navLink.active .linkIcon {
+  filter: brightness(0) invert(1);
+}
+
+.linkText {
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.navLink:hover .linkText,
+.navLink.hovered .linkText {
+  color: #3498db;
+}
+
+.navLink.active .linkText {
+  color: white;
+  font-weight: 700;
+}
+
+.linkUnderline {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #3498db, #667eea);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.navLink:hover .linkUnderline,
+.navLink.hovered .linkUnderline {
+  width: 80%;
+}
+
+.navLink.active .linkUnderline {
+  width: 90%;
+  background: white;
+  opacity: 0.8;
+}
+
+.linkHoverEffect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(52, 152, 219, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.navLink:hover .linkHoverEffect,
+.navLink.hovered .linkHoverEffect {
+  width: 100px;
+  height: 100px;
+  opacity: 1;
+}
+
+.activeIndicator {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 8px;
+  height: 8px;
+  background: #e74c3c;
+  border-radius: 50%;
+  opacity: 0;
+  transform: scale(0);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #e74c3c;
+}
+
+.navLink.active .activeIndicator {
+  opacity: 1;
+  transform: scale(1);
+  animation: pulseDot 2s infinite;
+}
+
+/* Enhanced CTA Button */
+.ctaButton {
+  position: relative;
+  background: linear-gradient(135deg, #3498db, #667eea);
+  color: white;
+  border: none;
+  padding: 0.9rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 2;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.ctaButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
+}
+
+.ctaIcon {
+  font-size: 1.2rem;
+  transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .ctaIcon {
+  transform: scale(1.2) rotate(10deg);
+}
+
+.ctaHoverEffect {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+}
+
+.ctaButton:hover .ctaHoverEffect {
+  left: 100%;
+}
+
+.ctaPulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  background: inherit;
+  opacity: 0;
+  animation: ctaPulse 2s ease-in-out infinite;
+}
+
+/* Navigation Progress Bar */
+.navProgress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(52, 152, 219, 0.1);
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(90deg, #3498db, #667eea, #9b59b6);
+  transition: width 0.4s ease;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Mobile Menu Button */
+.mobileMenuButton {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  z-index: 1002;
+}
+
+.menuLine {
+  width: 25px;
+  height: 3px;
+  background: #333;
+  transition: all 0.3s ease;
+  transform-origin: center;
+  border-radius: 2px;
+}
+
+.mobileMenuButton:hover .menuLine {
+  background: #3498db;
+}
+
+.line1 {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.line2 {
+  opacity: 0;
+}
+
+.line3 {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Enhanced Mobile Menu */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1001;
+  display: none;
+}
+
+.mobileMenu.open {
+  display: block;
+}
+
+.mobileMenuContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 320px;
+  height: 100%;
+  background: white;
+  box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+  padding: 6rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transform: translateX(100%);
+  transition: transform 0.4s ease;
+  z-index: 1002;
+}
+
+.mobileMenu.open .mobileMenuContent {
+  transform: translateX(0);
+}
+
+.mobileNavLink {
+  position: relative;
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #f8f9fa;
+}
+
+.mobileNavLink.active {
+  background: linear-gradient(135deg, #3498db, #667eea);
+  color: white;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.mobileLinkIcon {
+  font-size: 1.2rem;
+}
+
+.mobileNavLink.active .mobileLinkIcon {
+  filter: brightness(0) invert(1);
+}
+
+.mobileLinkText {
+  position: relative;
+  z-index: 2;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.mobileLinkIndicator {
+  position: absolute;
+  top: 50%;
+  left: -0.5rem;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 0;
+  background: #3498db;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+.mobileNavLink.active .mobileLinkIndicator {
+  height: 30px;
+  background: white;
+}
+
+.mobileCtaButton {
+  margin-top: 2rem;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  color: white;
+  border: none;
+  padding: 1.2rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.mobileCtaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.mobileCtaIcon {
+  font-size: 1.3rem;
+}
+
+.mobileMenuBackdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+/* Animations */
+@keyframes logoGlow {
+  0%, 100% { opacity: 0.1; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.15; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@keyframes ctaPulse {
+  0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.3; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .navLinks {
+    gap: 1rem;
+  }
+  
+  .navLink {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .ctaButton {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navLinks,
+  .ctaButton {
+    display: none;
+  }
+  
+  .mobileMenuButton {
+    display: flex;
+  }
+  
+  .navContainer {
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .logoMain {
+    font-size: 1.2rem;
+  }
+  
+  .logoSub {
+    font-size: 0.65rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobileMenuContent {
+    width: 280px;
+  }
+  
+  .navContainer {
+    padding: 0.8rem 1rem;
+  }
+  
+  .logoText {
+    display: none;
+  }
+}
+
+.footer {
+  background: linear-gradient(135deg, #2c3e50, #34495e);
+  color: white;
+  padding: 3rem 0 1rem;
+  margin-top: 4rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Main Content */
+.mainContent {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+/* Brand Section with Logo */
+.brandSection {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.logoContainer {
+  flex-shrink: 0;
+}
+
+.companyLogo {
+  border-radius: 12px;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.companyLogo:hover {
+  transform: scale(1.05);
+  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255,255,255,0.3));
+}
+
+.brand h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #3498db, #fff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.tagline {
+  color: #bdc3c7;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+.poweredBy {
+  color: #95a5a6;
+  font-size: 0.9rem;
+}
+
+.techpotli {
+  color: #3498db;
+  font-weight: 600;
+}
+
+/* Contact Info */
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.8rem;
+  line-height: 1.4;
+}
+
+.contactItem .icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.contactItem a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.contactItem a:hover {
+  color: #2980b9;
+  text-decoration: underline;
+}
+
+/* Quick Actions */
+.quickActions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: rgba(52, 152, 219, 0.2);
+  color: white;
+  text-decoration: none;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(52, 152, 219, 0.3);
+  font-weight: 500;
+}
+
+.actionBtn:hover {
+  background: #3498db;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+  text-decoration: none;
+}
+
+/* Bottom Bar */
+.bottomBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright p {
+  margin: 0.2rem 0;
+  color: #bdc3c7;
+}
+
+.madeWith {
+  color: #e74c3c !important;
+  font-size: 0.9rem;
+}
+
+.techpotliBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #bdc3c7;
+  font-size: 0.9rem;
+}
+
+.techpotliLogo {
+  border-radius: 8px;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.techpotliBrand:hover .techpotliLogo {
+  transform: scale(1.1);
+}
+
+.techpotliText {
+  font-weight: 600;
+  color: #3498db;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .mainContent {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  .brandSection {
+    grid-column: 1 / -1;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .brandSection {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contactItem {
+    justify-content: center;
+  }
+  
+  .quickActions {
+    align-items: center;
+  }
+  
+  .bottomBar {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 2rem 0 1rem;
+  }
+  
+  .brand h3 {
+    font-size: 1.3rem;
+  }
+  
+  .actionBtn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .techpotliBrand {
+    font-size: 0.8rem;
+  }
+  
+  .techpotliLogo {
+    width: 30px;
+    height: 30px;
+  }
+}
