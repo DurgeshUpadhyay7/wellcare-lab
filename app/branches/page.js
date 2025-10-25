@@ -21,6 +21,15 @@ const branches = [
   },
   {
     id: 3,
+    name: "Monda Naka Branch",
+    address: "Monda Naka, Aurangabad",
+    map: "https://www.google.com/maps?q=Monda+Naka,+Aurangabad",
+    phone: "9420120226",
+    hours: "7:00 AM - 9:00 PM",
+    services: ["Blood Tests", "Sugar Tests", "Child Health"]
+  },
+  {
+    id: 4,
     name: "Tanaji Chowk, Balaji Nagar Branch",
     address: "Shivshankar Colony, Monda Naka, Aurangabad",
     map: "https://www.google.com/maps?q=Tanaji+Chowk,+Balaji+Nagar,+Aurangabad",
@@ -29,7 +38,7 @@ const branches = [
     services: ["Blood Tests", "Sugar Tests", "Child Health"]
   },
   {
-    id: 4,
+    id: 5,
     name: "Kailash Nagar Branch",
     address: "Near Sachin Laundry, Aurangabad",
     map: "https://www.google.com/maps?q=Kailash+Nagar,+Aurangabad",
@@ -38,7 +47,7 @@ const branches = [
     services: ["Complete Health Package", "Senior Citizen Discount"]
   },
   {
-    id: 5,
+    id: 6,
     name: "Jinshi Ramanstpura Branch",
     address: "Aurangabad",
     map: "https://www.google.com/maps?q=Jinshi+Ramanstpura,+Aurangabad",
@@ -47,7 +56,7 @@ const branches = [
     services: ["All Pathology Tests", "Digital Reports"]
   },
   {
-    id: 6,
+    id: 7,
     name: "Chotegaon Branch",
     address: "Opposite Canara Bank, Aurangabad",
     map: "https://www.google.com/maps?q=Chotegaon,+Aurangabad",
@@ -102,7 +111,7 @@ export default function Branches() {
         <div className={styles.heroContent}>
           <h1 className={styles.mainTitle}>Our Branches</h1>
           <p className={styles.heroSubtitle}>
-            Multiple locations across Chh. Sambhajinagar for your convenience
+            07 Branches across Chh. Sambhajinagar for your convenience
           </p>
           <div className={styles.underline}></div>
         </div>
@@ -130,7 +139,7 @@ export default function Branches() {
       {/* All Branches Section */}
       <div className={styles.allBranches}>
         <div className={styles.container}>
-          <h2 className={styles.sectionTitle}>Our Branch Locations</h2>
+          <h2 className={styles.sectionTitle}>Our 07 Branch Locations</h2>
           <p className={styles.sectionSubtitle}>
             Find the nearest Wellcare Pathology Laboratory branch
           </p>
@@ -208,7 +217,7 @@ export default function Branches() {
                 <p>Click on branch cards above to view locations on Google Maps</p>
                 <div className={styles.mapStats}>
                   <div className={styles.stat}>
-                    <div className={styles.statNumber}>6</div>
+                    <div className={styles.statNumber}>7</div>
                     <div className={styles.statLabel}>Branches</div>
                   </div>
                   <div className={styles.stat}>
