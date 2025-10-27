@@ -1,58 +1,72 @@
-import styles from "../styles/Footer.module.css";
+import Link from 'next/link'
+import styles from '../styles/Footer.module.css'
 
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.footerContent}>
-        
-        {/* Main Footer Content */}
-        <div className={styles.mainContent}>
-          <div className={styles.brand}>
-            <h3>Wellcare Pathology Laboratory</h3>
-            <p className={styles.tagline}>A Place You Can Trust</p>
-          </div>
-
-          <div className={styles.contactInfo}>
-            <div className={styles.contactItem}>
-              <span className={styles.icon}>📍</span>
-              <span>Matoshree Clinic, Behind Medplus Medical, Amdar Rode, Satara Parisar, Aurangabad 431010</span>
-            </div>
-            <div className={styles.contactItem}>
-              <span className={styles.icon}>📞</span>
-              <a href="tel:9420120226">9420120226</a>
-            </div>
-            <div className={styles.contactItem}>
-              <span className={styles.icon}>✉️</span>
-              <a href="mailto:pavanbshinde23@gmail.com">pavanbshinde23@gmail.com</a>
-            </div>
-          </div>
-
-          <div className={styles.quickActions}>
-            <a href="tel:9420120226" className={styles.actionBtn}>
-              📞 Call Now
-            </a>
+      <div className={styles.container}>
+        {/* Company Info */}
+        <div className={styles.section}>
+          <h3 className={styles.title}>Attri Aroma</h3>
+          <p className={styles.tagline}>मन को शुद्ध बना दे</p>
+          <p className={styles.description}>
+            Pure aromatic products from the spiritual land of Haridwar
+          </p>
+          <div className={styles.socialLinks}>
             <a 
-              href="https://wa.me/919420120226" 
+              href="https://wa.me/8445536413" 
               target="_blank" 
-              rel="noopener noreferrer" 
-              className={styles.actionBtn}
+              rel="noopener noreferrer"
+              className={styles.socialLink}
             >
               💬 WhatsApp
+            </a>
+            <a 
+              href="tel:8445536413" 
+              className={styles.socialLink}
+            >
+              📞 Call Now
             </a>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className={styles.bottomBar}>
-          <div className={styles.copyright}>
-            <p>© 2025 Wellcare Pathology Laboratory. All rights reserved.</p>
-            <p className={styles.madeWith}>Made with ❤️ for your health</p>
+        {/* Quick Links */}
+        <div className={styles.section}>
+          <h4 className={styles.subtitle}>Quick Links</h4>
+          <div className={styles.links}>
+            <Link href="/" className={styles.link}>Home</Link>
+            <Link href="/products" className={styles.link}>Products</Link>
+            <Link href="/about" className={styles.link}>About Us</Link>
+            <Link href="/contact" className={styles.link}>Contact</Link>
+          </div>
+        </div>
+
+        {/* Contact Info */}
+        <div className={styles.section}>
+          <h4 className={styles.subtitle}>Contact Info</h4>
+          <div className={styles.contactInfo}>
+            <div className={styles.contactItem}>
+              <span className={styles.contactIcon}>📞</span>
+              <span>8445536413</span>
+            </div>
+            <div className={styles.contactItem}>
+              <span className={styles.contactIcon}>📧</span>
+              <span>attriaromaharidwar@gmail.com</span>
+            </div>
+            <div className={styles.contactItem}>
+              <span className={styles.contactIcon}>🏠</span>
+              <span>Prem Vihar Chowk, Haridwar</span>
+            </div>
+            <div className={styles.contactItem}>
+              <span className={styles.contactIcon}>🕘</span>
+              <span>9AM - 7PM</span>
+            </div>
           </div>
         </div>
 
         {/* TechPotli Credit Section */}
         <div className={styles.techpotli}>
-          <p className={styles.creditText}>Designed by</p>
+          <p className={styles.creditText}>Website Designed by</p>
           <a
             href="https://techpotli.com/"
             target="_blank"
@@ -60,14 +74,22 @@ export default function Footer() {
             className={styles.logoLink}
           >
             <img
-              src="/New_Techpotli_Logo.png"
-              alt="TechPotli"
+              src="/techpotli-logo.png" // Update this path to your TechPotli logo
+              alt="TechPotli - Website Development Company"
               className={styles.logo}
             />
           </a>
+          <p className={styles.techpotliTagline}>Creating Digital Excellence</p>
         </div>
-        
+      </div>
+
+      {/* Bottom Bar */}
+      <div className={styles.bottomBar}>
+        <div className={styles.container}>
+          <p>&copy; {new Date().getFullYear()} Attri Aroma Haridwar. All rights reserved.</p>
+          <p>Established: 22nd Sept 2025</p>
+        </div>
       </div>
     </footer>
-  );
+  )
 }
